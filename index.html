@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plan4U Task Manager</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <div class="first-page">
+        <h1>Welcome to Plan4U Task Manager</h1>
+        <div class="sign-up">
+            <h2>Sign Up</h2>
+            <div>Username:</div>
+            <input id="signupusername" type="text" class="sign-up-input">
+            <div>Password:</div>
+            <input id="signuppwd" type="password" class="sign-up-input">
+            <button id="signupbtn" class="sign-up-btn" onclick="signUp()">Sign Up</button>
+            <h3>Already have an account?</h3>
+            <h2>Log In</h2>
+            <div>Username:</div>
+            <input type="text" class="sign-up-input" id="loginusername">
+            <div>Password:</div>
+            <input type="password" class="sign-up-input" id="loginpwd">
+            <button id="loginbtn" class="sign-up-btn" onclick="logIn()">Log In</button>
+        </div>
+    </div>
+
+    <div class="task-manager" style="display: none;">
+        <div class="navbar">
+            <div class="heading">PLAN4U TASK MANAGER</div>
+        </div>
+        <div class="img">
+            <div class="content">
+
+                <div class="add-task">
+                    <div class="addtask">ADD TASK</div>
+                    <div class="addtask-content">
+                        <div class="div-one">
+                            <input id="title" type="textbox" placeholder="Title" class="title" />
+
+                        </div>
+                        <div class="div-two">
+                            <input id="date" type="date" placeholder="Due Date" name="setTodaysDate" />
+                        </div>
+                        <div class="div-three">
+                            <textarea id="description" placeholder="Description" rows="4" cols="50"></textarea>
+                        </div>
+                        <div class="div-four">
+                            <select id="category" class="category btn">
+                                <option value="" hidden>category</option>
+                                <option value="Work">Work</option>
+                                <option value="Shopping">Shopping</option>
+                                <option value="Personal">Personal</option>
+                            </select>
+
+                        </div>
+                        <div class="div-six">
+                            <label for="checkbox">Everyday</label>
+                            <input type="checkbox" name="everyday-checkbox" id="everyday">
+                        </div>
+                        <div class="div-five">
+                            <button class="add-btn" onclick="addTask()">Add</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="list">
+                    <div class="listheading-one">LIST OF TASKS</div>
+
+                    <div class="listheading-two">
+                        <select id="sort" class="sortbtn btn">
+                            <option value="" hidden>Sort</option>
+                            <option value="status">Status</option>
+                            <option value="due date">Due Date</option>
+                            <option value="title">Title</option>
+                            <option value="category">Category</option>
+                        </select>
+
+                        <input id="searchButton" type="text" placeholder="" class="searchBox btn search-click"
+                            onchange="searchTask()" />
+                        <button id="clearButton" class="searchbtn btn clearbtn">
+                            Clear
+                        </button>
+                    </div>
+                    <div class="table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="task-cell"></th>
+                                    <th class="task-cell">Titles</th>
+                                    <th class="task-cell">Due Dates</th>
+                                    <th class="task-cell">Description</th>
+                                    <th class="task-cell">Category</th>
+                                    <th class="task-cell">Status</th>
+                                    <th class="task-cell"></th>
+                                    <th class="task-cell"></th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="task-list-container" class="task-table"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="editModal" class="modal">
+                <div class="modal-content">
+                    <div class="topline">
+                        <h2>Edit Task</h2>
+                        <button class="close-modal" onclick="closeModal()">
+                            ❌
+                        </button>
+                    </div>
+                    <div class="edititems">
+                        <div class="each">
+                            <label for="edit-title">Title:</label>
+                            <input type="text" class="modal-input" id="edit-title" />
+                        </div>
+                        <div class="editcontent">
+                            <label for="edit-date">Due Date:</label>
+                            <input type="date" class="modal-input" id="edit-date" />
+                        </div>
+                        <div class="editdescription">
+                            <label for="edit-description">Description:</label>
+                            <input type="text" class="modal-input" id="edit-description" />
+                        </div>
+                    </div>
+                    <button id="save-edit" class="modal-button save-btn editsavebtn" onclick="saveModal()">
+                        Save
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
