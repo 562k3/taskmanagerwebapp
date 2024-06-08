@@ -1,0 +1,2 @@
+A task manager web app built using html, css and javascript. A first year project. Includes add task with title field, calender date field, category field and a description field. Basic login sign up logic is applied. List of tasks displyed can be sorted according to due date, status, category and title. Search option is available with to navigate between different tasks. Feature to delete and edit/update a task is available along with complete check box. 
+Clone git repository and click on go live to view the website.
